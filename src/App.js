@@ -26,6 +26,10 @@ const [repositories, setRepositories] = useState([]);
 
   async function handleRemoveRepository(id) {
       await api.delete(`repositories/${id}`); //o comando delete não retorna nada, por isso não é utilizado o const response
+      
+      setRepositories(repositories.filter(
+        repository => repository.id != id
+      ))
   };
 
   return (
